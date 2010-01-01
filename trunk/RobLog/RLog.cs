@@ -23,6 +23,30 @@ namespace RobLog
             set { level = value; }
         }
 
+        public RLog(string file)
+        {
+            filename = file;
+
+            string[] log = RLogReader.ReadLog(file);
+
+            foreach (string line in log)
+            {
+                Llog.Add(line);
+                loggedLevel.Add(ELogLevel.Detrc6);
+            }
+        }
+
+        public RLog()
+        {
+            string[] log = RLogReader.ReadLog(filename);
+
+            foreach (string line in log)
+            {
+                Llog.Add(line);
+                loggedLevel.Add(ELogLevel.Detrc6);
+            }
+        }
+
         public string[] logArray
         {
             get
@@ -38,7 +62,7 @@ namespace RobLog
             Llog.Add(line);
             loggedLevel.Add(level);
             writeLogToFile();
-            displayLine();
+            //displayLine();
         }
 
         public void log(object caller, string message)

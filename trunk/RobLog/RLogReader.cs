@@ -10,11 +10,16 @@ namespace RobLog
     {
         public static string[] ReadLog(string file)
         {
-            StreamReader reader = new StreamReader(file);
-            List<string> log = new List<string>();
-            while (!reader.EndOfStream)
-                log.Add(reader.ReadLine());
-            return log.ToArray();
+            if (File.Exists(file))
+            {
+                StreamReader reader = new StreamReader(file);
+                List<string> log = new List<string>();
+                while (!reader.EndOfStream)
+                    log.Add(reader.ReadLine());
+                reader.Close();
+                return log.ToArray();
+            }
+            return new string[0];
         }
 
         public static void displayLog(string file)
