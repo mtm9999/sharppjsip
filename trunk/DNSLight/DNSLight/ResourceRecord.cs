@@ -55,11 +55,6 @@ namespace DNSLight
             _dnsClass = (DnsClass)pointer.ReadShort();
             _ttl = pointer.ReadInt();
 
-            if (_dnsType == DnsType.RT)
-            {
-                Console.WriteLine("Got an RT");
-            }
-
             int recordLength = pointer.ReadShort();
 
             switch (_dnsType)
