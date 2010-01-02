@@ -55,7 +55,7 @@ namespace DNSLight
         }
 
         /// <summary>
-        /// 16 bit field
+        /// 32 bit field
         /// </summary>
         /// <returns></returns>
         public int ReadInt()
