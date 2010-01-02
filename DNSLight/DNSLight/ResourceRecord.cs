@@ -36,11 +36,16 @@ namespace DNSLight
             get { return _ttl; }
         }
 
-        private readonly Record _record;
+        private Record _record;
 
         public Record Record
         {
-            get { return _record; }
+            get 
+            {
+                if (_record == null)
+                    _record = new NullRecord();
+                return _record; 
+            }
         }
 
         internal ResourceRecord(SmartPointer pointer)
@@ -50,6 +55,11 @@ namespace DNSLight
             _dnsClass = (DnsClass)pointer.ReadShort();
             _ttl = pointer.ReadInt();
 
+            if (_dnsType == DnsType.RT)
+            {
+                Console.WriteLine("Got an RT");
+            }
+
             int recordLength = pointer.ReadShort();
 
             switch (_dnsType)
@@ -58,6 +68,7 @@ namespace DNSLight
                 case DnsType.MX: _record = new MxRecord(pointer); break;
                 case DnsType.NS: _record = new NsRecord(pointer); break;
                 case DnsType.SOA: _record = new NsRecord(pointer); break;
+                case DnsType.CNAME: _record = new CNameRecord(pointer); break;
                 default:
                     pointer += recordLength;
                     break;
