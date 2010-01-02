@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Net;
 
 namespace DNSLight
 {
@@ -43,6 +44,20 @@ namespace DNSLight
         public byte ReadByte()
         {
             return _message[_position++];
+        }
+
+        /// <summary>
+        /// a 32 bit field
+        /// </summary>
+        /// <returns></returns>
+        public IPAddress ReadIPAddress()
+        {
+            byte b1 = ReadByte();
+            byte b2 = ReadByte();
+            byte b3 = ReadByte();
+            byte b4 = ReadByte();
+
+            return IPAddress.Parse(string.Format("{0}.{1}.{2}.{3}", b1, b2, b3, b4));
         }
 
         /// <summary>

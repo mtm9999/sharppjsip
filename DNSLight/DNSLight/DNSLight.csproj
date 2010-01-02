@@ -45,23 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ANameRecord.cs" />
-    <Compile Include="CNameRecord.cs" />
+    <Compile Include="Records\ANameRecord.cs" />
+    <Compile Include="Records\CNameRecord.cs" />
     <Compile Include="DnsResolver.cs" />
     <Compile Include="enums.cs" />
-    <Compile Include="MxRecord.cs" />
-    <Compile Include="NsRecord.cs" />
-    <Compile Include="NullRecord.cs" />
+    <Compile Include="Records\MxRecord.cs" />
+    <Compile Include="Records\NsRecord.cs" />
+    <Compile Include="Records\NullRecord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />
-    <Compile Include="Record.cs" />
+    <Compile Include="Records\Record.cs" />
+    <Compile Include="Records\WKSRecord.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="ResourceRecord.cs" />
     <Compile Include="Response.cs" />
-    <Compile Include="RouteThroughRecord.cs" />
+    <Compile Include="Records\RouteThroughRecord.cs" />
     <Compile Include="SmartPointer.cs" />
-    <Compile Include="SoaRecord.cs" />
+    <Compile Include="Records\SoaRecord.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\RobLog\RobLog\RobLog.csproj">
