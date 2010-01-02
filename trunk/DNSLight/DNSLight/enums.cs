@@ -10,8 +10,10 @@ namespace DNSLight
         None = 0,
         ANAME = 1,
         NS = 2,
+        CNAME = 5,
         SOA = 6,
-        MX = 15
+        MX = 15,
+        RT = 21
     }
 
     public enum DnsClass

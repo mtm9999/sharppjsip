@@ -36,26 +36,46 @@ namespace DNSLight
             return _message[_position];
         }
 
+        /// <summary>
+        /// 8 bit field
+        /// </summary>
+        /// <returns></returns>
         public byte ReadByte()
         {
             return _message[_position++];
         }
 
+        /// <summary>
+        /// 16 bit field
+        /// </summary>
+        /// <returns></returns>
         public short ReadShort()
         {
             return (short)(ReadByte() << 8 | ReadByte());
         }
 
+        /// <summary>
+        /// 16 bit field
+        /// </summary>
+        /// <returns></returns>
         public int ReadInt()
         {
             return (ushort)ReadShort() << 16 | (ushort)ReadShort();
         }
 
+        /// <summary>
+        /// 8 bit field as char
+        /// </summary>
+        /// <returns></returns>
         public char ReadChar()
         {
             return (char)ReadByte();
         }
 
+        /// <summary>
+        /// reads an entire string of format xx.yy.zz
+        /// </summary>
+        /// <returns></returns>
         public string ReadDomain()
         {
             StringBuilder domain = new StringBuilder();
