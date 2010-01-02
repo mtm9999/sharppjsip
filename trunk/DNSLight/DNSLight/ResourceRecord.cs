@@ -64,6 +64,7 @@ namespace DNSLight
                 case DnsType.NS: _record = new NsRecord(pointer); break;
                 case DnsType.SOA: _record = new NsRecord(pointer); break;
                 case DnsType.CNAME: _record = new CNameRecord(pointer); break;
+                case DnsType.PTR: _record = new CNameRecord(pointer); break;
                 default:
                     pointer += recordLength;
                     break;

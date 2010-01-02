@@ -20,12 +20,14 @@ namespace DNSLight
 
         internal ANameRecord(SmartPointer pointer)
         {
-            byte b1 = pointer.ReadByte();
+            /*byte b1 = pointer.ReadByte();
             byte b2 = pointer.ReadByte();
             byte b3 = pointer.ReadByte();
             byte b4 = pointer.ReadByte();
 
-            _ipAddress = IPAddress.Parse(string.Format("{0}.{1}.{2}.{3}", b1, b2, b3, b4));
+            _ipAddress = IPAddress.Parse(string.Format("{0}.{1}.{2}.{3}", b1, b2, b3, b4));*/
+
+            _ipAddress = pointer.ReadIPAddress();
         }
 
         public override string ToString()
